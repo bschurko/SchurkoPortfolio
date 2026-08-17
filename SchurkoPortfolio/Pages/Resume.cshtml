@@ -1,0 +1,77 @@
+@page
+@model ResumeModel
+@{
+    ViewData["Title"] = "Resume";
+}
+
+<section class="page-hero page-container resume-hero">
+    <div>
+        <div class="eyebrow">ONLINE RESUME</div>
+        <h1>Alex Morgan</h1>
+        <p>Senior Software Developer · C# · ASP.NET Core · Cloud</p>
+    </div>
+    <button class="button button-primary print-button" onclick="window.print()">Print / Save PDF</button>
+</section>
+
+<section class="resume-sheet page-container">
+    <header class="resume-header">
+        <div><h2>Alex Morgan</h2><p>Senior Software Developer</p></div>
+        <div class="resume-contact">
+            <span>alex@example.com</span>
+            <span>Vancouver, BC</span>
+            <span>github.com/alexmorgan</span>
+        </div>
+    </header>
+
+    <div class="resume-grid">
+        <div>
+            <section class="resume-section">
+                <h3>Profile</h3>
+                <p>Software developer with 8+ years of experience designing and delivering dependable web applications and APIs. Strong in C#, ASP.NET Core, SQL, cloud delivery, and pragmatic system design.</p>
+            </section>
+
+            <section class="resume-section">
+                <h3>Experience</h3>
+                <div class="resume-role">
+                    <div><strong>Senior Software Developer</strong><span>Northstar Digital · 2023–Present</span></div>
+                    <ul><li>Lead development of ASP.NET Core applications and APIs.</li><li>Improved reliability through testing, observability, and deployment automation.</li></ul>
+                </div>
+                <div class="resume-role">
+                    <div><strong>Software Developer</strong><span>Vertex Systems · 2020–2023</span></div>
+                    <ul><li>Built business applications, integrations, and reporting services.</li><li>Modernized legacy code and standardized CI/CD practices.</li></ul>
+                </div>
+                <div class="resume-role">
+                    <div><strong>Junior Software Developer</strong><span>Blue Peak Software · 2018–2020</span></div>
+                    <ul><li>Developed internal tools, database features, and customer-facing functionality.</li></ul>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <h3>Selected Projects</h3>
+                <div class="project-line"><strong>Operations Platform</strong><span>ASP.NET Core · SQL Server · Azure</span></div>
+                <div class="project-line"><strong>Developer Portal</strong><span>Razor Pages · REST · CI/CD</span></div>
+                <div class="project-line"><strong>Data Integration Service</strong><span>C# · Background Workers · APIs</span></div>
+            </section>
+        </div>
+
+        <aside>
+            <section class="resume-section">
+                <h3>Technical Skills</h3>
+                <div class="skill-list">
+                    <span>C# / .NET</span><span>ASP.NET Core</span><span>Razor Pages</span>
+                    <span>REST APIs</span><span>SQL Server</span><span>Entity Framework Core</span>
+                    <span>Azure</span><span>Docker</span><span>Git</span><span>CI/CD</span>
+                    <span>HTML / CSS</span><span>JavaScript</span>
+                </div>
+            </section>
+            <section class="resume-section">
+                <h3>Education</h3>
+                <p><strong>BSc, Computer Science</strong><br />Pacific Technical University<br />2018</p>
+            </section>
+            <section class="resume-section">
+                <h3>Interests</h3>
+                <p>Developer tooling · UI engineering · Systems design · Open source</p>
+            </section>
+        </aside>
+    </div>
+</section>

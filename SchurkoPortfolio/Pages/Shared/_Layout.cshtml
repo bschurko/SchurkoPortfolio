@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Software developer portfolio, experience, resume, and contact information." />
+    <title>@ViewData["Title"] · Alex Morgan</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="chrome-orb orb-one"></div>
+    <div class="chrome-orb orb-two"></div>
+
+    <header class="site-header">
+        <nav class="nav-shell">
+            <a class="brand" asp-page="/Index" aria-label="Alex Morgan home">
+                <span class="brand-mark">&lt;/&gt;</span>
+                <span>Alex Morgan</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-links">
+                <a asp-page="/Index">Home</a>
+                <a asp-page="/Experience">Experience</a>
+                <a asp-page="/Resume">Resume</a>
+                <a class="nav-cta" asp-page="/Contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>Alex Morgan</strong>
+            <span>Software Developer · Builder · Problem Solver</span>
+        </div>
+        <div class="footer-meta">© @DateTime.UtcNow.Year · Built with ASP.NET Core</div>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

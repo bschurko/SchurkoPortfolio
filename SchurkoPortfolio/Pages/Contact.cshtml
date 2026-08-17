@@ -1,0 +1,58 @@
+@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<section class="page-hero page-container">
+    <div class="eyebrow">LET'S CONNECT</div>
+    <h1>Have a project in mind?</h1>
+    <p>Tell me what you're building, what problem you're trying to solve, or what role you're hiring for.</p>
+</section>
+
+<section class="contact-layout page-container">
+    <div class="glass-card contact-card">
+        <div class="eyebrow">CONTACT DETAILS</div>
+        <h2>Start a conversation.</h2>
+        <p>I’m open to interesting software projects, consulting conversations, and senior development opportunities.</p>
+        <div class="contact-list">
+            <a href="mailto:alex@example.com"><span>Email</span> alex@example.com</a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer"><span>GitHub</span> github.com/alexmorgan</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><span>LinkedIn</span> linkedin.com/in/alexmorgan</a>
+        </div>
+    </div>
+
+    <form method="post" class="glass-card contact-form">
+        <div class="form-grid">
+            <label>
+                Name
+                <input asp-for="Input.Name" placeholder="Your name" />
+                <span asp-validation-for="Input.Name"></span>
+            </label>
+            <label>
+                Email
+                <input asp-for="Input.Email" placeholder="you@example.com" />
+                <span asp-validation-for="Input.Email"></span>
+            </label>
+        </div>
+        <label>
+            Subject
+            <input asp-for="Input.Subject" placeholder="Project or opportunity" />
+            <span asp-validation-for="Input.Subject"></span>
+        </label>
+        <label>
+            Message
+            <textarea asp-for="Input.Message" rows="7" placeholder="Tell me a little about what you have in mind..."></textarea>
+            <span asp-validation-for="Input.Message"></span>
+        </label>
+        <button class="button button-primary" type="submit">Send message <span>→</span></button>
+        @if (Model.Sent)
+        {
+            <div class="success-message">Thanks — your message has been received by this demo form.</div>
+        }
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
