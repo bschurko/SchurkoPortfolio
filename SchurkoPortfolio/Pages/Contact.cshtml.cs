@@ -1,6 +1,8 @@
-using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SchurkoPortfolio.Core.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace DeveloperPortfolio.Pages;
 
@@ -11,23 +13,31 @@ public class ContactModel : PageModel
 
     public bool Sent { get; private set; }
 
+    public ISmtpEmailService EmailService { get; set; } = default!;
+
+    public ContactModel(ISmtpEmailService emailService)
+    {
+        EmailService = emailService;
+    }
+
     public void OnGet() { }
 
-    public void OnPost()
+    public async Task<IActionResult> OnPostAsync()
     {
         if (!ModelState.IsValid)
-            return;
+            return Page();
 
-        // Replace this with your email provider, database, or CRM integration.
-        Sent = true;
+        var success = await EmailService.SendEmailAsync(Input.Email, Input.Subject, Input.Message);
+
+        Sent = success;
         ModelState.Clear();
         Input = new();
+
+        return Page();
     }
 
     public class ContactInput
     {
-        [Required, StringLength(80)]
-        public string Name { get; set; } = string.Empty;
 
         [Required, EmailAddress]
         public string Email { get; set; } = string.Empty;
@@ -39,3 +49,4 @@ public class ContactModel : PageModel
         public string Message { get; set; } = string.Empty;
     }
 }
+

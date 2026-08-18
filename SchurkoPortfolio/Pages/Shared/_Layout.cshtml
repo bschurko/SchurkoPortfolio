@@ -8,37 +8,49 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
+    @{
+        var currentPage = ViewContext.RouteData.Values["page"]?.ToString();
+     }
     <div class="chrome-orb orb-one"></div>
     <div class="chrome-orb orb-two"></div>
 
     <header class="site-header">
         <nav class="nav-shell">
-            <a class="brand" asp-page="/Index" aria-label="Alex Morgan home">
+            <a class="brand" asp-page="/Index" aria-label="Brett Schurko home">
                 <span class="brand-mark">&lt;/&gt;</span>
-                <span>Alex Morgan</span>
+                <span>Brett Schurko</span>
             </a>
 
             <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
-
+            
             <div class="nav-links">
-                <a asp-page="/Index">Home</a>
-                <a asp-page="/Experience">Experience</a>
-                <a asp-page="/Resume">Resume</a>
-                <a class="nav-cta" asp-page="/Contact">Contact</a>
+                <a class="@(currentPage == "/Index"
+                        ? "nav-cta"
+                        : "")" asp-page="/Index">Home</a>
+                <a class="@(currentPage == "/Experience"
+                        ? "nav-cta"
+                        : "")" asp-page="/Experience">Experience</a>
+                <a class="@(currentPage == "/Resume"
+                        ? "nav-cta"
+                        : "")" asp-page="/Resume">Resume</a>
+                <a class="@(currentPage == "/Contact"
+                        ? "nav-cta"
+                        : "")" asp-page="/Contact">Contact</a>
             </div>
         </nav>
     </header>
 
     <main>
+        
         @RenderBody()
     </main>
 
     <footer class="site-footer">
         <div>
-            <strong>Alex Morgan</strong>
-            <span>Software Developer · Builder · Problem Solver</span>
+            <strong>Brett Schurko</strong>
+            <span>Software Developer · Builder · Problem Solver</span> 
         </div>
         <div class="footer-meta">© @DateTime.UtcNow.Year · Built with ASP.NET Core</div>
     </footer>

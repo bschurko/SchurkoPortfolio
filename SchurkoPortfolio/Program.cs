@@ -1,7 +1,16 @@
+using SchurkoPortfolio.Core.Interfaces;
+using SchurkoPortfolio.Core.Model;
+using SchurkoPortfolio.Core.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+SmtpSetting smtpSettings = builder.Configuration.GetSection("SmtpSettings").Get<SmtpSetting>() ?? new SmtpSetting();
+
+builder.Services.AddSingleton<ISmtpEmailService, EmailService>(provider => new EmailService(smtpSettings));
+
 
 var app = builder.Build();
 

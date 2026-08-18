@@ -1,0 +1,31 @@
+@{
+    // Helper to determine the "active" CSS class for the current Razor Page.
+    string GetActiveClass(string page, bool startsWith = false)
+    {
+        var routePage = (ViewContext.RouteData.Values["page"] as string) ?? "/";
+        string normalize(string s) => ((s ?? "/").StartsWith("/") ? s : "/" + s).ToLowerInvariant();
+        var current = normalize(routePage);
+        var target = normalize(page);
+        return startsWith ? (current.StartsWith(target) ? "active" : "") : (current == target ? "active" : "");
+    }
+}
+
+<header class="site-header">
+    <nav class="nav-shell">
+        <a class="brand" asp-page="/Index" aria-label="Alex Morgan home">
+            <span class="brand-mark">&lt;/&gt;</span>
+            <span>Alex Morgan</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-links">
+            <a class="nav-cta @(GetActiveClass("/Index"))" asp-page="/Index">Home</a>
+            <a class="nav-link @(GetActiveClass("/Experience"))" asp-page="/Experience">Experience</a>
+            <a class="nav-link @(GetActiveClass("/Resume"))" asp-page="/Resume">Resume</a>
+            <a class="nav-link @(GetActiveClass("/Contact"))" asp-page="/Contact">Contact</a>
+        </div>
+    </nav>
+</header>
