@@ -38,6 +38,31 @@
                 <a class="@(currentPage == "/Contact"
                         ? "nav-cta"
                         : "")" asp-page="/Contact">Contact</a>
+
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+
+                    <a class="@(currentPage == "/Admin/DocDb"
+                                            ? "nav-cta"
+                                            : "")" asp-page="/Admin/DocDb">DocDb</a>
+                    <a class="@(currentPage == "/Admin/AiEmailChart"
+                        ? "nav-cta"
+                        : "")" asp-page="/Admin/AiEmailChart">AiEmailChart</a>
+                    <a class="@(currentPage == "/Admin/EmailChart"
+                        ? "nav-cta"
+                        : "")" asp-page="/Admin/EmailChart">EmailChart</a>
+
+                    <a class="@(currentPage == "/Account/Logout"
+                                            ? "nav-cta"
+                                            : "")" asp-page="/Account/Logout">Logout</a>
+                }
+                else
+                {
+                    <a class="@(currentPage == "/Account/Login"
+                                            ? "nav-cta"
+                                            : "")" asp-page="/Account/Login">Login</a>
+                }
+                 
             </div>
         </nav>
     </header>

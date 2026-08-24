@@ -1,0 +1,14 @@
+﻿@page
+@model SchurkoPortfolio.Pages.Admin.EmailChartDetailsModel
+@{
+    ViewData["Title"] = "Email Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+   
+<div>
+    <p><strong>Id:</strong> @Model.EmailSummary.Id</p>
+    <p><strong>Email:</strong> @Model.EmailSummary.Email</p>
+    <p><strong>Subject:</strong> @Model.EmailSummary.Subject</p>
+    <p><strong>Message:</strong> @Model.EmailSummary.Message</p>
+</div>

@@ -1,0 +1,62 @@
+﻿@page
+@model SchurkoPortfolio.Pages.Admin.EmailChartModel
+
+@{
+    ViewData["Title"] = "Email Summaries";
+}
+
+<h1>Email Summaries</h1>
+
+<div>
+    <form method="post">
+        <span>Prompt Message:</span>
+        <input asp-for="Prompt" type="text" />
+        <br/>
+        <div>@Model.GeneratedMessage</div>
+    </form>
+</div>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+             <th>Id</th>
+            <th>Email</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Date Created</th>
+            <th>Details</th>
+           
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var email in Model.EmailSummaries)
+        {
+            <tr>
+                <td>
+                    @email.Id
+                </td>
+                 <td>
+                    @email.Email
+                </td>
+                <td>
+                    @email.Subject
+                </td>
+                <td>
+                    @email.DateCreated
+                </td>
+                <td>
+                    @email.Message
+                </td>
+                
+                <td>
+                    <a asp-page="/Admin/EmailChartDetails"
+                       asp-route-id="@email.Id"
+                       class="btn btn-primary btn-sm">
+                        Details
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

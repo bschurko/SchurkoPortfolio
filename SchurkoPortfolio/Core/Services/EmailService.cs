@@ -20,6 +20,8 @@ namespace SchurkoPortfolio.Core.Services
         public string Email { get; }
         public string Password { get; } = string.Empty;
 
+
+
         public async Task<bool> SendEmailAsync(string email, string title, string body)
         {
             try

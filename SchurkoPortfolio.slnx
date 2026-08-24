@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Schurko.Tests/Schurko.Tests.csproj" Id="55a8d703-7880-4e27-8a3b-23652573bca1" />
   <Project Path="SchurkoPortfolio/SchurkoPortfolio.csproj" />
 </Solution>
